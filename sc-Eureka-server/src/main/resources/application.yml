@@ -1,0 +1,30 @@
+server:
+  port: 9999
+spring:
+  profiles: slave1
+  application:
+    name: cluster
+eureka:
+  instance:
+    hostname: slave1
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://slave2:9999/eureka/
+---
+      
+server:
+  port: 9998
+spring:
+  profiles: slave2
+  application:
+    name: cluster
+eureka:
+  instance:
+    hostname: slave2
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://slave1:9998/eureka/

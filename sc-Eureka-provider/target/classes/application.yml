@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: sc1
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://slave1:9999/eureka/,http://slave2:9998/eureka/
